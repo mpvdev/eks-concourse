@@ -1,0 +1,28 @@
+concourse:
+  web:
+    externalUrl: http://localhost:8080
+
+    auth:
+      mainTeam:
+        localUser: admin
+
+secrets:
+  localUsers: "admin:admin"
+
+web:
+  replicas: 1
+
+worker:
+  replicas: 1
+
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: concourse-postgres-password
+    password: concourse-postgres-password
+    username: concourse
+    database: concourse
+  primary:
+    persistence:
+      enabled: true
+      size: 8Gi
